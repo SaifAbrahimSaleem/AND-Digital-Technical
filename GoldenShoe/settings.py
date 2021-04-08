@@ -28,7 +28,7 @@ SECRET_KEY = '@73dy^dy1mb+9$sb759l8z9@u%*p4-#d6jt45je7vswij_(ya&'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['https://goldenshoe-technical.herokuapp.com/']
+ALLOWED_HOSTS = []
 
 
 # Application definition
