@@ -64,9 +64,9 @@ $(document).ready(function(){
         success: function(data){
           if(parseInt(data["redirect"])==0){
               DisplayNotification(data);
+              window.location.reload();
           } else{
               window.location = "/portal/";
-              DisplayNotification(data);
           }
         }
       });
