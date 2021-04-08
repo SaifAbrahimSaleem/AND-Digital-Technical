@@ -380,7 +380,6 @@ def signup(request):
                 customer=Customer.objects.create(user=user)
                 customer.email = user.email
                 customer.name = user.first_name
-                login(request, user)
                 response['response'] = 'Registered Successfully! You can now login! Check your email for a special surprise!'
                 response['redirect'] = 0
                 response['code'] = 1
