@@ -381,7 +381,7 @@ def signup(request):
                 customer.email = user.email
                 customer.name = user.first_name
                 response['response'] = 'Registered Successfully! You can now login! Check your email for a special surprise!'
-                response['redirect'] = 0
+                response['redirect'] = 1
                 response['code'] = 1
                 today = timezone.now()
                 duration = today + datetime.timedelta(days=30)
