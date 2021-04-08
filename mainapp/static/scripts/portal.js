@@ -66,7 +66,7 @@ $(document).ready(function(){
               DisplayNotification(data);
               window.location.reload();
           } else{
-              window.location = "/portal/";
+              window.location = "/";
           }
         }
       });
