@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+{% extends 'mainapp/base.html'%}
+{% load static %}
+<html lang="en" dir="ltr">
+  <head>
+    {% block Header %}
+      <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    {% endblock %}
+  </head>
+  <body>
+    {% block Body %}
+      <div class="carousel-container">
+        <div id="demo" class="carousel slide carousel-animation" data-ride="carousel">
+          <!-- Indicators -->
+          <ol class="carousel-indicators">
+            <li data-target="#demo" data-slide-to="0" class="active"></li>
+            <li data-target="#demo" data-slide-to="1"></li>
+            <li data-target="#demo" data-slide-to="2"></li>
+            <li data-target="#demo" data-slide-to="3"></li>
+          </ol>
+          <!-- The slideshow -->
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img src="{% static 'images/StockImage1.jpg' %}" alt="Stock1">
+              <div class="carousel-caption d-none d-md-block">
+                <h1 class="display-3 caption-title">Welcome to Golden Shoe!</h1>
+                <p class="lead">Shop now for the best deals on footwear!</p>
+                <a href="#"><button class="btn btn-outline-custom carousel-button my-2 my-sm-0">Shop</button></a>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <img src="{% static 'images/StockImage2.jpg' %}" alt="Stock2">
+              <div class="carousel-caption d-none d-md-block">
+                <h1 class="display-3 caption-title">Shop Womens</h1>
+                <p class="lead">Shop now for the best deals on womens footwear!</p>
+                <a href="{% url 'product-search' %}?category=womens"><button class="btn btn-outline-custom carousel-button my-2 my-sm-0">Shop Womens</button></a>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <img src="{% static 'images/StockImage3.jpg' %}" alt="Stock3">
+              <div class="carousel-caption d-none d-md-block">
+                <h1 class="display-3 caption-title">Shop Mens</h1>
+                <p class="lead">Shop now for the best deals on mens footwear!</p>
+                <a href="{% url 'product-search' %}?category=mens"><button class="btn btn-outline-custom carousel-button my-2 my-sm-0">Shop Mens</button></a>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <img src="{% static 'images/StockImage4.jpg' %}" alt="Stock3">
+              <div class="carousel-caption d-none d-md-block">
+                <h1 class="display-3 caption-title">Shop Unisex</h1>
+                <p class="lead">Shop now for the best deals on unisex footwear!</p>
+                <a href="{% url 'product-search' %}?category=unisex"><button class="btn btn-outline-custom carousel-button my-2 my-sm-0">Shop Unisex</button></a>
+              </div>
+            </div>
+          </div>
+        
+          <!-- Left and right controls -->
+          <a class="carousel-control-prev carousel-controls" href="#demo" data-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+          </a>
+          <a class="carousel-control-next carousel-controls" href="#demo" data-slide="next">
+            <span class="carousel-control-next-icon"></span>
+          </a>
+        </div>
+      </div>
+
+      <div class="content">
+
+        <!-- UNISEX SHOES -->
+        <h1 class="display-4 shop-title">Shop Unisex</h1>
+        <div class="carousel slide carousel-animation item-carousel" data-ride="carousel" id="unisex-products">
+          <ol class="carousel-indicators" id="unisex-indicators"></ol>
+          <div class="carousel-inner" id="unisex-inner"></div>
+           <!-- Left and right controls -->
+          <a class="carousel-control-prev carousel-controls" href="#unisex-products" data-slide="prev">
+            <span class="carousel-control-prev-icon item-prev"></span>
+          </a>
+          <a class="carousel-control-next carousel-controls" href="#unisex-products" data-slide="next">
+            <span class="carousel-control-next-icon item-next"></span>
+          </a>
+        </div>
+
+        <!-- MENS SHOES -->
+        <h1 class="display-4 shop-title">Shop Mens</h1>
+        <div class="carousel slide carousel-animation item-carousel" data-ride="carousel" id="mens-products">
+          <ol class="carousel-indicators" id="mens-indicators"></ol>
+          <div class="carousel-inner" id="mens-inner"></div>
+           <!-- Left and right controls -->
+          <a class="carousel-control-prev carousel-controls" href="#mens-products" data-slide="prev">
+            <span class="carousel-control-prev-icon item-prev"></span>
+          </a>
+          <a class="carousel-control-next carousel-controls" href="#mens-products" data-slide="next">
+            <span class="carousel-control-next-icon item-next"></span>
+          </a>
+        </div>
+
+        <!-- WOMENS SHOES -->
+        <h1 class="display-4 shop-title">Shop Womens</h1>
+        <div class="carousel slide carousel-animation item-carousel" data-ride="carousel" id="womens-products">
+          <ol class="carousel-indicators" id="womens-indicators"></ol>
+          <div class="carousel-inner" id="womens-inner"></div>
+           <!-- Left and right controls -->
+          <a class="carousel-control-prev carousel-controls" href="#womens-products" data-slide="prev">
+            <span class="carousel-control-prev-icon item-prev"></span>
+          </a>
+          <a class="carousel-control-next carousel-controls" href="#womens-products" data-slide="next">
+            <span class="carousel-control-next-icon item-next"></span>
+          </a>
+        </div>
+
+      </div>
+    
+    {% endblock %}
+      {% block Scripts %}
+        <script src="{% static 'scripts/index.js'%}"></script>
+      {% endblock %}
+    </body>
+  </html>

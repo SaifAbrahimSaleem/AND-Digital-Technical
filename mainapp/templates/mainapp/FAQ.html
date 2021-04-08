@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+{% extends 'mainapp/base.html'%}
+{% load static %}
+<html lang="en">
+<head>
+    {% block Header %}
+        <link rel="stylesheet" href="{% static 'css/FAQ.css' %}">
+    {% endblock %}
+</head>
+<body>
+    {% block Body %}
+    <div class="container">
+        <br />
+        <br />
+        <br />
+    
+        <div class="alert alert-warning alert-dismissible" role="alert">
+            <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            This section contains a wealth of information, related to <strong>Golden Shoe Store</strong> and its store. If you cannot find an answer to your question, 
+            make sure to contact us via email: support@goldenshoe.co.uk, our hotline: 07123456789, or alternatively, contact us via our contact form. We respond to all
+            contact as soon as we can (9am-4pm Monday-Friday).
+        </div>
+    
+        <br />
+    
+        <div class="" id="accordion">
+            <h3 class="font-weight-bold">General Questions</h3>
+            <div class="card my-2">
+                <div class="header-wrapper">
+                    <h4 class="card-header text-center">
+                        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">Is account registration required?</a>
+                    </h4>
+                </div>
+                <div id="collapseOne" class="panel-collapse collapse in">
+                    <div class="card-block font-italic">
+                        Account registration at <strong>Golden Shoe Store</strong> is highly advisable but not necessary. Registering an account will help to
+                        keep track of existing orders, as well as pending orders.
+                    </div>
+                </div>
+            </div>
+
+            <div class="card my-2">
+                <div class="header-wrapper">
+                    <h4 class="card-header text-center">
+                        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">How do I create an account?</a>
+                    </h4>
+                </div>
+                <div id="collapseTwo" class="panel-collapse collapse in">
+                    <div class="card-block font-italic">
+                        Click the <strong>"Sign-up"</strong> button. Once clicked, you will be prompted with a form to fill in. Once <strong>completely</strong> filled in, 
+                        click the <strong>"Create Account"</strong> button. A confirmation email will be sent to the provided email address to activate the account.
+                    </div>
+                </div>
+            </div>
+
+            <div class="card my-2">
+                <div class="header-wrapper">
+                    <h4 class="card-header text-center">
+                        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseThree">How do I reset my password?</a>
+                    </h4>
+                </div>
+                <div id="collapseThree" class="panel-collapse collapse in">
+                    <div class="card-block font-italic">
+                        Click the <strong>"Login"</strong> button. Once clicked, you will be prompted with a login form for which, click the <strong>"forgot password"</strong> button 
+                        and enter the email address associated with the account.
+                    </div>
+                </div>
+            </div>
+            <br>
+            <h3 class="font-weight-bold">Orders</h3>
+            <div class="card my-2">
+                <div class="header-wrapper">
+                    <h4 class="card-header text-center">
+                        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseFour">Do you provide Tracking information?</a>
+                    </h4>
+                </div>
+                <div id="collapseFour" class="panel-collapse collapse in">
+                    <div class="card-block font-italic">
+                        Once you have <strong>placed an order</strong>, you will receive a confirmation email, detailing your order, along with your order reference. Once your order 
+                        has been submitted for shipping, you will receive a further email detailing your <strong>tracking information</strong>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card my-2">
+                <div class="header-wrapper">
+                    <h4 class="card-header text-center">
+                        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseFive">Can I make changes to my order?</a>
+                    </h4>
+                </div>
+                <div id="collapseFive" class="panel-collapse collapse in">
+                    <div class="card-block font-italic">
+                        As soon as orders have been received, as long as your order <strong>has not been submitted for processing</strong>, we can provide assistance in changing your order.
+                        If your order <strong>is currently being, or has already been processed</strong>, unfortunately, you <strong>cannot</strong> change your order.
+                    </div>
+                </div>
+            </div>
+
+            <div class="card my-2">
+                <div class="header-wrapper">
+                    <h4 class="card-header text-center">
+                        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseSix">Can I make cancel my order?</a>
+                    </h4>
+                </div>
+                <div id="collapseSix" class="panel-collapse collapse in">
+                    <div class="card-block font-italic">
+                        As soon as orders have been received, as long as your order <strong>has not been submitted for processing</strong>, we can provide assistance in cancelling your order.
+                        If your order <strong>is currently being, or has already been processed</strong>, unfortunately, you <strong>cannot cancel</strong> your order.
+                    </div>
+                </div>
+            </div>
+
+            <div class="card my-2">
+                <div class="header-wrapper">
+                    <h4 class="card-header text-center">
+                        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseSeven">Can I make changes to the shipping address in my order?</a>
+                    </h4>
+                </div>
+                <div id="collapseSeven" class="panel-collapse collapse in">
+                    <div class="card-block font-italic">
+                        As soon as orders have been received, as long as your order <strong>has not been submitted for processing</strong>, we can provide assistance in changing the shipping address of your order.
+                        If your order <strong>is currently being, or has already been processed</strong>, unfortunately, you <strong>cannot</strong> change the shipping address of your order.
+                    </div>
+                </div>
+            </div>
+
+            <div class="card my-2">
+                <div class="header-wrapper">
+                    <h4 class="card-header text-center">
+                        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseEight">What is the process for making returns?</a>
+                    </h4>
+                </div>
+                <div id="collapseEight" class="panel-collapse collapse in">
+                    <div class="card-block font-italic">
+                        The process for initiating returns of items is <strong>easy</strong>! <strong>Please refer to our Returns Policy</strong> for more information regarding our returns.
+                    </div>
+                </div>
+            </div>
+
+            <div class="card my-2">
+                <div class="header-wrapper">
+                    <h4 class="card-header text-center">
+                        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseNine">How much is shipping?</a>
+                    </h4>
+                </div>
+                <div id="collapseNine" class="panel-collapse collapse in">
+                    <div class="card-block font-italic">
+                        Shipping rates <strong>vary</strong> based on your <strong>location</strong> and the <strong>size</strong> of your order. The <strong>easiest</strong> method of estimating
+                        your shipping rate would be to check the amount via the checkout page.
+                    </div>
+                </div>
+            </div>
+
+            <div class="card my-2">
+                <div class="header-wrapper">
+                    <h4 class="card-header text-center">
+                        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseTen">Do you provide any discounts?</a>
+                    </h4>
+                </div>
+                <div id="collapseTen" class="panel-collapse collapse in">
+                    <div class="card-block font-italic">
+                        We offer <strong>many</strong> forms of discounts! Look out for any of the following:
+                        <ol>
+                            <li> <strong>Discount Vouchers </strong> sent via email</li>
+                            <li> <strong>Online Shopping Schemes</strong> such as Honey/Coupon Mate</li>
+                            <li> <strong>Holiday discounts</strong> on selected items</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    {% endblock %}
+    {% block Scripts %}
+    {% endblock %}
+</body>
+</html>

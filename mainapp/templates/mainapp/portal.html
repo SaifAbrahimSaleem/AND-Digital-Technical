@@ -1,0 +1,83 @@
+{% extends 'mainapp/base.html'%} {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {% block Header %}
+    <link rel="stylesheet" href="{% static 'css/portal.css' %}" />
+    {% endblock %}
+  </head>
+  <body>
+    {% block Body %}
+        <div class="login-notification col-sm-12 float-right" id="login-notification"></div>
+        <div class="center-wrapper">
+            <div class="container-fluid">
+                <div class="row justify-content-center mb-5">
+                    <div class="col-md-9 portal">
+                        <ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link active" id="login-tab" data-toggle="tab" href="#login" role="tab" aria-controls="login" aria-selected="true">Login</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="signup-tab" data-toggle="tab" href="#signup" role="tab" aria-controls="signup" aria-selected="false" >Signup</a>
+                            </li>
+                        </ul>
+                        <div class="tab-content" id="myTabContent">
+                            <div class="tab-pane fade show active" id="login" role="tabpanel" aria-labelledby="login-tab">
+                                <h3 class="portal-heading">Login</h3>
+                                <div class="row register-form d-block">
+                                    <form id="login-form">
+                                        {% csrf_token %} 
+                                        {% for field in login_form %}
+                                            <div class="form-group floating-label-form-group controls mb-0 mr-1 pb-2 row">
+                                                <label for="id_{{field.name}}">{{field.label}}</label>
+                                                {{field}}
+                                            </div>
+                                            {% if field.name == "email" %}
+                                                <small class="text-muted">Please enter a registered email</small>
+                                            {% elif field.name == "password" %}
+                                                <small class="text-muted">Please enter the password associated with this account</small>
+                                            {% endif %}
+                                        {% endfor %}
+                                        <button class="btn btn-outline-custom custom-text btn-lg btn-block my-5" id="loginbtn" type="submit" name="login">Login</button>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade show" id="signup" role="tabpanel" aria-labelledby="signup-tab">
+                                <h3 class="portal-heading">Register</h3>
+                                <div class="row register-form d-block">
+                                    <form id="signup-form">
+                                        {% csrf_token %} 
+                                        {% for field in register_form %}
+                                            <div class="form-group floating-label-form-group controls mb-0 mr-1 pb-2 row">
+                                                <label for="id_{{field.name}}">{{field.label}}</label>
+                                                {{field}}
+                                            </div>
+                                            {% if field.name == "email" %}
+                                                <small class="text-muted">Please enter a valid email</small>
+                                            {% elif field.name == "username" %}
+                                                <small class="text-muted">Please enter a username</small>
+                                            {% elif field.name == "first_name" %}
+                                                <small class="text-muted">Please enter your first name</small>
+                                            {% elif field.name == "last_name" %}
+                                                <small class="text-muted">Please enter yout last name</small>
+                                            {% elif field.name == "password1" %}
+                                                <small class="text-muted">Please enter a password</small>
+                                            {% elif field.name == "password2" %}
+                                                <small class="text-muted">Please confirm your password</small>
+                                            {% endif %}
+                                        {% endfor %}
+                                        <button class="btn btn-outline-custom custom-text btn-lg btn-block my-5" id="signupbtn" type="submit" name="register">Register</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endblock %} 
+    {% block Scripts %} 
+        <script src="{% static 'scripts/portal.js' %}"></script>
+    {% endblock %}
+  </body>
+</html>

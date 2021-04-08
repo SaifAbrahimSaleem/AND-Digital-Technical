@@ -1,0 +1,99 @@
+:root{
+    --small: 0.8rem;
+}
+
+.center-wrapper {
+    padding: 0.5rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    min-height: 100%;
+}
+
+.content {
+    margin: 0 auto;
+    max-width: 800px;
+    box-shadow: 
+    0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+    0 6.7px 5.3px rgba(0, 0, 0, 0.048), 
+    0 12.5px 10px rgba(0, 0, 0, 0.06),
+    0 22.3px 17.9px rgba(0, 0, 0, 0.072);
+    background-color: white;
+}
+
+.heading{
+    padding-top: 1.5rem;
+    padding-bottom:1.5rem;
+    background-color: rgb(244, 181, 60);
+}
+
+.order-content{
+    padding:1vmax;
+}
+
+.table-wrapper{
+    padding:2vmax;
+}
+
+.table{
+    border:none !important; 
+}
+
+.table-head{
+    width:100%;
+    background-color:  rgb(244, 181, 60);
+}
+
+.image {
+    width: 40%;
+}
+  
+.image > .shoe-image {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.item-detail{
+    top:0;
+}
+
+.table-foot{
+    border-bottom:1px solid rgb(223, 227, 231);
+}
+
+.shipping{
+    box-shadow: 
+    0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+    0 6.7px 5.3px rgba(0, 0, 0, 0.048), 
+    0 12.5px 10px rgba(0, 0, 0, 0.06),
+    0 22.3px 17.9px rgba(0, 0, 0, 0.072);
+}
+
+.shipping-heading{
+    background-color: rgb(244, 181, 60);
+    padding-top:1vh;
+    padding-bottom:1vh;
+}
+
+.label {
+    width: 10vw;
+    clear: left;
+    text-align: right;
+    padding-right: 10px;
+}
+  
+.val, .label {
+    float: left;
+}
+
+.small{
+    font-size: var(--small);
+}

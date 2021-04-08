@@ -1,0 +1,123 @@
+{% extends 'mainapp/base.html'%}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% block Header %}
+    <link rel="stylesheet" href="{% static 'css/search.css' %}">
+    {% endblock %}
+</head>
+<body>
+    {% block Body %}
+		<div class="container content">
+			<div class="row">
+				<div class="col-sm-3">
+					<div class="left-sidebar">
+						<h2>Category </h2>
+						{% for c in categories %}
+							
+							<div class="panel-group category-products" id="accordian-w">
+								<div class="panel panel-default">
+									<div class="panel-heading">
+										<h4 class="panel-title">
+											<a data-toggle="collapse" data-parent="#accordian-{% if c == 'MENS' %}m{% elif c == 'WOMENS' %}w{% else %}u{% endif %}" href="#{% if c == 'MENS' %}mens{% elif c == 'WOMENS' %}womens{% else %}unisex{% endif %}">
+												{{c}}
+											</a>
+										</h4>
+									</div>
+									<div id="{% if c == 'MENS' %}mens{% elif c == 'WOMENS' %}womens{% else %}unisex{% endif %}" class="panel-collapse collapse">
+										<div class="panel-body">
+											<ul>
+												<li><a href="{% url 'product-search' %}?category={% if c == 'MENS' %}mens-sport{% elif c == 'WOMENS' %}womens-sport{% else %}unisex-sport{% endif %}">Sport</a></li>
+												<li><a href="{% url 'product-search' %}?category={% if c == 'MENS' %}mens-casual{% elif c == 'WOMENS' %}womens-casual{% else %}unisex-casual{% endif %}">Casual</a></li>
+												<li><a href="{% url 'product-search' %}?category={% if c == 'MENS' %}mens-evening-wear{% elif c == 'WOMENS' %}womens-evening-wear{% else %}unisex-evening-wear{% endif %}">Evening Wear</a></li>
+												<li><a href="{% url 'product-search' %}?category={% if c == 'MENS' %}mens-slippers{% elif c == 'WOMENS' %}womens-slippers{% else %}unisex-slippers{% endif %}">Slippers</a></li>
+												<li><a href="{% url 'product-search' %}?category={% if c == 'MENS' %}mens-sandals{% elif c == 'WOMENS' %}womens-sandals{% else %}unisex-sandals{% endif %}">Sandals</a></li>
+												<li><a href="{% url 'product-search' %}?category=womens-pumps">Pumps</a></li>
+												{% if c == 'WOMENS' %}<li><a href="{% url 'product-search' %}?category=womens-high-heels">High Heels</a></li>{% endif %}
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+						{% endfor %}
+
+						<div class="price-range">
+							<h2>Price Range</h2>
+							<div class="slider-wrapper">
+
+								<div class="text-center">
+									<input type="range" class="input-slider" id="slider-left" min="0" max="190">
+									<input type="range" class="input-slider" id="slider-right" min="0" max="190">
+							   </div>
+							   <div class="slider">
+								   <div class="track"></div>
+								   <div class="range"></div>
+								   <div class="thumb left">
+									   <div id="thumb-info-left"><p class="text-center" id="append-info-left"></p></div>
+								   </div>
+								   <div class="thumb right">
+									   <div id="thumb-info-right"><p class="text-center" id="append-info-right"></p></div>
+								   </div>
+							   </div>
+
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				<div class="col-sm-9 padding-right">
+					<div class="shop_items">
+						<h2 class="title text-center">SHOP {{ category }}</h2>
+						<div class="d-flex flex-row flex-wrap align-items-start" id="products">
+                            {% for shoe in shoes %}       
+								{% if shoe.quantity > 0 %}
+                                    <div class="product-image-wrapper mx-5 col-md-4" data-code="{{shoe.catalogue_code}}" data-sizes="{{shoe.sizes}}">
+                                        <div class="product">
+                                            <div class="productinfo text-center">
+                                                <a id="search-product-link" data-code="{{shoe.catalogue_code}}">
+                                                    <img src="{{ shoe.shoe_image }}"/>
+                                                </a>   
+                                                <h2 class="item-price">{{shoe.price}}</h2>
+                                                <div class="d-inline-flex">
+                                                    <p class="font-weight-bold">{{shoe.name}}</p>
+                                                     <p class="ml-2 text-muted">{{shoe.collection}}</p>
+                                                </div>
+												<br>
+                                                <button class="btn btn-default btn-outline-custom custom-text" id="add-to-basket-search">Add to basket</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                {% endif %}                   
+                            {% endfor %}
+						</div>	
+					</div>
+				</div>
+                
+			</div>
+		</div>
+        <!-- Modal -->
+		<div class="modal fade" id="searchModal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+			<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+				<h5 class="modal-title" id="searchModalLabel">Choose Size</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+				</div>
+				<div class="modal-body">
+				<div id="append-sizes"></div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-block btn-outline-custom inverted" id="add-to-basket-modal">Add To Basket</button>
+				</div>
+			</div>
+			</div>
+		</div>
+    {% endblock %}
+	{% block Scripts %}
+  		<script src="{% static 'scripts/search.js' %}"></script>
+	{% endblock %}
+</body>
+</html>

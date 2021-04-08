@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+{% extends 'mainapp/base.html'%}
+{% load static %}
+<html>
+    <head>
+        {% block Header %}
+            <link rel="stylesheet" href="{% static 'css/product_detail.css' %}">
+        {% endblock %}
+    </head>
+    <body>
+        {% block Body %}
+            <div class="content" id="product" data-code="{{code}}">
+                <section class="content-head mx-auto">
+                    <div class="product-head-wrapper">
+                        <div class="product-head">
+                            <img src="" id="product-image">
+                        </div>
+                        <div class="product-head">                          
+                            <div class="head-title">
+                                <div class="product-title-wrapper">
+                                    <p class="h5 title-item" id="product-name"></p>
+                                    <p class="h6 text-muted title-item" id="product-collection"></p>
+                                </div>
+                                <p class="h5 font-weight-bold" id="product-price"></p>
+                            </div>
+
+                            <div class="head-size"> 
+                                <div class="size-wrapper">
+                                    <p class="h6 font-weight-bold" id="size-title">Choose Size</p>
+                                    <div id="product-sizes"></div>
+                                </div>
+                            </div>
+
+                            <div class="head-quantity">
+                                <p class="h6 font-weight-bold" id="quantity-title"> Quantity </p>
+                                <div class="head-quantity-item">
+                                    <div class="custom-input">
+                                        <button class="btn font-weight-bold change-quantity" onclick="this.parentNode.querySelector('input[type=number]').stepDown()" id="change-quantity"><span>&#8722;</span></button>
+                                        <input class="form-control mr-sm-2" type="number" id="shoe-quantity" value="0"min="0">
+                                        <button class="btn font-weight-bold change-quantity" onclick="this.parentNode.querySelector('input[type=number]').stepUp()" id="change-quantity"><span>&#43;</span></button>
+                                    </div>
+                                    <button class="btn btn-outline-custom custom-text" id="add-to-basket" data-action="AddToBasket">Add to basket</button>     
+                                </div>                               
+                            </div>
+
+                        </div>
+                    </div>
+                </section>
+                <section class="my-5 mx-auto">
+                    <div class="info-tabs">
+                        <div class="tab-container">
+                            <div class="info-tab">
+                                <a class="tab-link" id="product-info-tab" data-target="product-info">Product Info</a> 
+                            </div>
+                            <div class="info-tab">
+                                <a class="tab-link" id="delivery-tab" data-target="delivery-info">Delivery</a> 
+                            </div>
+                            <div class="info-tab">
+                                <a class="tab-link" id="returns-tab" data-target="returns-info">Returns</a>  
+                            </div>
+                            <div class="info-tab">
+                                <a class="tab-link" id="reviews-tab" data-target="reviews-info">Reviews</a> 
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="info-sections">
+                        <div class="info-section" id="product-info">
+                            <div class="mb-2 mx-5 info-wrapper">
+                                <p class="h5 font-weight-bold">Description</p> 
+                                <p id="product-description"></p>
+                            </div>
+                            <div class="my-2 mx-5 info-wrapper">
+                                <p class="h5 font-weight-bold">Materials</p>
+                                <p id="product-materials"></p> 
+                            </div>
+                            <div class="my-2 mx-5 info-wrapper">
+                                <p class="h5 font-weight-bold">Colour</p> 
+                                <p id="product-colour"></p>
+                            </div>
+                        </div>
+                        <div class="info-section p-5" id="delivery-info">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <td><p class="text-center font-weight-bold">Delivery Type</p></td>
+                                        <td><p class="text-center font-weight-bold">Description</p></td>
+                                        <td><p class="text-center font-weight-bold">Estimate</p></td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><p class="text-center font-weight-bold">Click & Collect</p></td>
+                                        <td><p class="text-center">Available within 3 working days to any of our UK stores</p></td>
+                                        <td><p class="text-center">FREE</p></td>
+                                    </tr>
+                                    <tr>
+                                        <td><p class="text-center font-weight-bold">CollectPlus</p></td>
+                                        <td><p class="text-center">£3.99 or FREE on full price items. Delivery in 2-3 working days to any CollectPlus location</p></td>
+                                        <td><p class="text-center">£3.99 / FREE</p></td>
+                                    </tr>
+                                    <tr>
+                                        <td><p class="text-center font-weight-bold">UK Standard Delivery</p></td>
+                                        <td><p class="text-center">£3.99 or FREE on full price items. Delivery within 3-5 working days</p></td>
+                                        <td><p class="text-center">£3.99 / FREE</p></td>
+                                    </tr>
+                                    <tr>      
+                                        <td><p class="text-center font-weight-bold">Next Day UK Yodel</p></td>
+                                        <td><p class="text-center">Order up to 8:30pm*</p></td>
+                                        <td><p class="text-center">£5.99</p></td>
+                                    </tr>
+                                    <tr>
+                                        <td><p class="text-center font-weight-bold">Same Day London (E-Courier)</p></td>
+                                        <td><p class="text-center">Order by 1pm Monday to Friday - Delivery between 6pm-10pm, Mon-Fri</p></td>
+                                        <td><p class="text-center">£7.95</p></td>
+                                    </tr>
+                                    <tr>
+                                        <td><p class="text-center font-weight-bold">International Delivery</p></td>
+                                        <td><p class="text-center">International Standard Delivery within 2-10* working days International Express Delivery within 2-5* working days</p></td>
+                                        <td><p class="text-center">Cost dependant on country.</p></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="info-section" id="returns-info">
+                            <p class="font-weight-bold">Not happy with a purchase? &nbsp;</p>
+                             <p class="font-italic">No problem. You can return to our warehouse, via Collect+ or to one of our UK stores <span class="font-weight-bold">within 30 days </span>of purchase.
+                                Footwear should be <span class="font-weight-bold">unworn</span> and <span class="font-weight-bold">in its original packaging</span>. Your refund will then be processed back to your original method of payment.</p>
+                        </div>
+                        <div class="info-section mx-auto my-0" id="reviews-info">
+                            {% for review in reviews %}
+                                <blockquote class="blockquote text-center my-5 p-2">
+                                    {% if review.rating == 1 %}    
+                                        <i class="h3 fa fa-star checked"></i>
+                                        <i class="h3 fa fa-star"></i>
+                                        <i class="h3 fa fa-star"></i>
+                                        <i class="h3 fa fa-star"></i>
+                                        <i class="h3 fa fa-star"></i>
+                                    {% elif review.rating == 2 %}
+                                        <i class="h3 fa fa-star checked"></i>
+                                        <i class="h3 fa fa-star checked"></i>
+                                        <i class="h3 fa fa-star"></i>
+                                        <i class="h3 fa fa-star"></i>
+                                        <i class="h3 fa fa-star"></i>
+                                    {% elif review.rating == 3 %}
+                                        <i class="h3 fa fa-star checked"></i>
+                                        <i class="h3 fa fa-star checked"></i>
+                                        <i class="h3 fa fa-star checked"></i>
+                                        <i class="h3 fa fa-star"></i>
+                                        <i class="h3 fa fa-star"></i>
+                                    {% elif review.rating == 4 %}
+                                        <i class="h3 fa fa-star checked"></i>
+                                        <i class="h3 fa fa-star checked"></i>
+                                        <i class="h3 fa fa-star checked"></i>
+                                        <i class="h3 fa fa-star checked"></i>
+                                        <i class="h3 fa fa-star"></i>
+                                    {% elif review.rating == 5 %}
+                                        <i class="h3 fa fa-star checked"></i>
+                                        <i class="h3 fa fa-star checked"></i>
+                                        <i class="h3 fa fa-star checked"></i>
+                                        <i class="h3 fa fa-star checked"></i>
+                                        <i class="h3 fa fa-star checked"></i>
+                                    {% endif %}
+                                    <p class="mb-0">{{review.description}}</p>
+                                    <footer class="blockquote-footer">{{review.customer}} <cite title="Source Title" style="font-size:12px;">{{review.date_added}}</cite></footer>
+                                </blockquote>
+                            {% endfor %}
+                            {% if request.user.is_authenticated %}
+                                <form class="p-5"id="rating-form" data-code="{{code}}">
+                                    {% csrf_token %}
+                                    <div class="form-group">
+                                        <fieldset class="rating">
+                                            <legend class="h4">Rating</legend>
+                                            <input type="radio" id="star5" name="rating" value="5" /><label for="star5" title="Excellent!">5 stars</label>
+                                            <input type="radio" id="star4" name="rating" value="4" /><label for="star4" title="Pretty Good">4 stars</label>
+                                            <input type="radio" id="star3" name="rating" value="3" /><label for="star3" title="Neutral">3 stars</label>
+                                            <input type="radio" id="star2" name="rating" value="2" /><label for="star2" title="Bad">2 stars</label>
+                                            <input type="radio" id="star1" name="rating" value="1" /><label for="star1" title="Really Bad">1 star</label>
+                                        </fieldset>
+                                    </div>
+                                    <br>
+                                    <br>
+                                    <br>
+                                    <div class="form-group">
+                                        <label class="h4" for="review-text">Review:</label>
+                                        <textarea class="form-control" id="review-text" rows="3"></textarea>
+                                    </div>
+                                    <div class="form-group float-right">
+                                        <button class="btn btn-lg btn-outline-custom custom-text" id="submit-review-btn" type="submit" name="review">Submit</button>
+                                    </div>
+                                </form>
+                            {% else %}
+                                <div class="text-center">
+                                    <p class="h2 font-weight-bold" style="color:#ffa600;">Create an account to post a review!</p>
+                                </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </section>
+            </div>
+        {% endblock %}
+        {% block Scripts %}
+            <script id="detail" src="{% static 'scripts/product_detail.js' %}"></script>
+        {% endblock %}
+    </body>
+</html>

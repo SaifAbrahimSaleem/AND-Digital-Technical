@@ -1,0 +1,171 @@
+.content{
+    left: 0;
+    right: 0;
+}
+
+.content-head{
+    padding:2vw;
+}
+
+.product-head-wrapper{
+    justify-content:center;
+    display:flex;
+    flex-direction:row;
+}
+
+.product-head{
+    align-self: flex-start;
+    margin-left:1vw !important;
+    margin-right:1vw !important;
+    width:40vw;
+    height:auto;
+    
+}
+
+.product-head img{
+    width:100%;
+    height:100%;
+    object-fit:contain;
+}
+
+.product-title-wrapper{
+    display:flex;
+}
+
+.title-item{
+    align-self: flex-start;
+}
+
+.info-tab{
+    display:inline-block;
+    padding:3vmax;
+    margin:2vw;
+}
+
+.tab-link{
+    text-decoration:none;
+    padding:3vmax;
+}
+
+.active-tab{
+    border-bottom: 3px solid black;
+    cursor: pointer;   
+}
+
+.info-wrapper{
+    padding:1vmax;
+}
+
+
+.head-quantity{
+    margin-top:15%;
+}
+
+.head-quantity p{
+    text-align:left;
+}
+
+.head-quantity-item{
+    display:flex;
+}
+
+.size-wrapper{
+    margin-top: 8vh;
+}
+
+#product-sizes{
+    display:flex;
+    flex-direction: row;
+    flex-wrap:wrap;
+    width: 25vw;
+}
+
+#product-sizes button{
+    margin:0.25vw;
+    width: 4vw;
+    align-self:flex-start;
+    cursor: pointer;
+}
+
+#product-collection{
+    margin-top:1%;
+    margin-left:0.75vw;
+}
+
+#returns-info{
+    padding-left:10vw;
+    padding-right:15vw;
+    padding-top:0;
+    padding-bottom:vh;
+}
+
+.highlight {
+    -webkit-box-shadow:0 0 20px #ffa600; 
+    -moz-box-shadow: 0 0 20px #ffa600; 
+    box-shadow:0 0 20px #ffa600 3s; 
+    animation: pulse 1s ease-out infinite;    
+}
+
+.checked{
+    color:#ffa600;
+}
+
+.out-of-stock{
+    color:red
+}
+
+.rating {
+    float:left;
+}
+
+/* :not(:checked) is a filter, so that browsers that don’t support :checked don’t 
+   follow these rules. Every browser that supports :checked also supports :not(), so
+   it doesn’t make the test unnecessarily selective */
+.rating:not(:checked) > input {
+    position:absolute;
+    top:-9999px;
+    clip:rect(0,0,0,0);
+}
+
+.rating:not(:checked) > label {
+    float:right;
+    width:1em;
+    padding:0 .1em;
+    overflow:hidden;
+    white-space:nowrap;
+    cursor:pointer;
+    font-size:200%;
+    line-height:1.2;
+    color:#ddd;
+    text-shadow:1px 1px #bbb, 2px 2px #666, .1em .1em .2em rgba(0,0,0,.5);
+}
+
+.rating:not(:checked) > label:before {
+    content: '★ ';
+}
+
+.rating > input:checked ~ label {
+    color: #f70;
+    text-shadow:1px 1px #c60, 2px 2px #940, .1em .1em .2em rgba(0,0,0,.5);
+}
+
+.rating:not(:checked) > label:hover,
+.rating:not(:checked) > label:hover ~ label {
+    color: gold;
+    text-shadow:1px 1px goldenrod, 2px 2px #B57340, .1em .1em .2em rgba(0,0,0,.5);
+}
+
+.rating > input:checked + label:hover,
+.rating > input:checked + label:hover ~ label,
+.rating > input:checked ~ label:hover,
+.rating > input:checked ~ label:hover ~ label,
+.rating > label:hover ~ input:checked ~ label {
+    color: #ea0;
+    text-shadow:1px 1px goldenrod, 2px 2px #B57340, .1em .1em .2em rgba(0,0,0,.5);
+}
+
+.rating > label:active {
+    position:relative;
+    top:2px;
+    left:2px;
+}

@@ -1,0 +1,158 @@
+:root {
+  --small: 0.8rem;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.center-wrapper {
+  padding: 0.5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  min-height: 100%;
+}
+
+.content {
+  padding: 1vmax;
+  margin: 0 auto;
+  max-width: 600px;
+  box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+    0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06),
+    0 22.3px 17.9px rgba(0, 0, 0, 0.072);
+  background-color: white;
+}
+
+.basket,
+.basket-total,
+.help {
+  padding: 0.5rem 1rem;
+}
+
+.top-bar,
+.basket-head::after,
+.basket-total::before {
+  background: whitesmoke;
+}
+
+.basket-head::after,
+.basket-total::before,
+.btn-remove {
+  display: block;
+}
+
+.basket-head::after,
+.basket-total::before,
+.collection-text,
+.promo-checkbox {
+  margin: 0.5rem 0;
+}
+
+.basket-head::after,
+.basket-total::before {
+  content: "";
+  width: 100%;
+  height: 3px;
+}
+
+.muted {
+  color: grey;
+}
+
+::placeholder,
+.product-code,
+.help {
+  font-size: var(--small);
+}
+
+h1 {
+  font-size: 1.6rem;
+}
+
+h2 {
+  font-size: 1.4rem;
+}
+
+.image {
+  width: 40%;
+}
+
+.image > .shoe-image {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.description {
+  padding-right: 1rem;
+  width: 60%;
+}
+
+.quantity-wrapper {
+  -webkit-box-align: start;
+  -ms-flex-align: start;
+  align-items: flex-start;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-flow: row wrap;
+  flex-flow: row wrap;
+  margin: 1rem 0 0.5rem;
+}
+
+.basket-summary-product,
+.subtotal,
+.delivery,
+.total,
+.promo-code {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.subtotal,
+.delivery,
+input[type="checkbox"],
+.help {
+  margin-bottom: 0.5rem;
+}
+
+.total {
+  margin-bottom: 1rem;
+}
+
+.form-input, #btn-apply{
+    width: calc(100% - 100px - 1rem);
+    padding: 0.5rem;
+}
+
+#form-label {
+    width: 6vw;
+    clear: left;
+    text-align: right;
+    padding-right: 10px;
+}
+  
+.form-input, #form-label {
+    float: left;
+}
+
+.help {
+  text-align: center;
+}
+
+i{
+    font-family: Geneva, Tahoma, Verdana, sans-serif;
+}

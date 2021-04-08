@@ -1,0 +1,130 @@
+{% extends 'mainapp/base.html'%}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% block Header %}
+    <link rel="stylesheet" href="{% static 'css/checkout.css'%}">
+    {% endblock %}
+</head>
+<body>
+    {% block Body %}
+        <div class="center-wrapper">
+            <div class="content">
+                <div class="basket">
+                    <p class="basket-head text-center font-weight-bold">{{ basket_content.order.basket_items }} <span style="text-transform: uppercase">items in basket</span></p>
+                </div>
+                <div id="checkout-items">
+                    {% for item in basket_items %}
+                        <div class="basket-summary-product">
+                            <div class="image">
+                                <img src="{% get_media_prefix %}{{item.shoe.image}}" class="shoe-image">
+                            </div>
+                            <div class="mx-3 my-auto description">
+                                <p class="product-code small muted">Product code: {{item.code}}</p>
+                                <h2 class="d-inline">{{item.shoe.name}}</h2> 
+                                <p class="collection-text text-muted d-inline">{{item.shoe.collection}}</p>
+                                <br>
+                                <p class="text-muted d-inline mr-2 align-middle d-inline">Size: </p>
+                                <p class="d-inline font-weight-bold" style="margin-bottom: 0.5rem;">{{item.shoe.size}}</p>
+                                <br>
+                                <p class="text-muted d-inline mr-2 align-middle">Total: </p>
+                                <p class="h6 d-inline font-weight-bold">£{{item.total}}</p>
+                                <div class="quantity-wrapper">
+                                    <div class="custom-input my-3">
+                                        <p class="summary-product-quantity text-muted align-middle mr-5">Quantity: </p>
+                                        <input class="form-control mr-sm-2 shoe-quantity-basket top" type="number" value="{{item.shoe.quantity}}" min="1" disabled>
+                                    </div>
+                                    <br>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            
+                <div class="basket-total">
+                    <div class="subtotal">
+                        <p class="small">Subtotal:</p>
+                        <p class="small">£{{basket_content.order.basket_total}}</p>
+                    </div>
+                    <div class="delivery">
+                        <p class="small">Delivery (Standard - 2 working days):<br>
+                        <p class="small">Free</p>
+                    </div>
+                    <div class="total">
+                        <h3>Total:</h3>
+                        <h3 id="order_total" data-total="{{basket_content.order.basket_total}}">£{{basket_content.order.basket_total}}</h3>
+                    </div>
+                    <p class="text-center" id="apply-to-me"></p>
+                    <div class="promo-code mx-3">
+                        <input class="align-top form-control form-input d-inline" type="text" id="promo-checkbox" placeholder="Enter your promo code here" >
+                        <button class="btn btn-block btn-outline-custom custom-text align-top d-inline" id="btn-apply-discount">Apply</button>
+                    </div>
+                    <br>
+                    <br>
+                    <button class="btn btn-block btn-outline-custom custom-text" id="open-shipping">
+                        <i class="fas fa-shipping-fast"></i>
+                        <span>Shipping Details</span>
+                    </button>
+                        <form class="guest-form" id="shipping-form">
+                            <div class="form-fields justify-content-center my-3 mx-5">
+                                {% if not request.user.is_authenticated %}
+                                    <div class="row input-wrapper form-inline mx-5">
+                                        <label for="name-input" class="font-weight-bold d-inline align-middle" id="form-label" >Name: 
+                                            <br>
+                                            <i class="fas fa-question-circle align-middle" title="Please enter a name e.g. John"></i>  
+                                        </label>
+                                        <input type="text" class="form-control shipping-input form-input" id="name-input" placeholder="John Smith">  
+                                    </div> 
+                                    <br>
+                                    <div class="row input-wrapper form-inline mx-5">
+                                        <label for="email-input" class="font-weight-bold d-inline align-middle" id="form-label">Email: 
+                                            <br>
+                                            <i class="fas fa-question-circle align-middle" title="Please enter an email in the correct format e.g. johnsmith@example.com"></i>
+                                        </label>
+                                        <input type="email" class="form-control d-inline shipping-input form-input" id="email-input" placeholder="someone@example.com">
+                                    </div> 
+                                    <br>
+                                {% endif %}
+                                <div class="row input-wrapper form-inline mx-5">
+                                    <label for="address1-input" class="font-weight-bold d-inline align-middle" id="form-label">Address: 
+                                        <br>
+                                        <i class="fas fa-question-circle align-middle" title="Please enter your address e.g. 36 Example Lane"></i>
+                                    </label>
+                                    <input type="text" class="form-control d-inline shipping-input form-input" id="address-input" placeholder="36 Example Lane">
+                                
+                                </div> 
+                                <br>
+                                <div class="row input-wrapper form-inline mx-5">
+                                    <label for="city-input" class="font-weight-bold d-inline align-middle" id="form-label">City: 
+                                        <br>
+                                        <i class="fas fa-question-circle align-middle" title="Please enter your city e.g. London"></i>
+                                    </label>
+                                    <input type="text" class="form-control d-inline shipping-input form-input" id="city-input" placeholder="London">
+                                    
+                                </div> 
+                                <br>
+                                <div class="row input-wrapper form-inline mx-5">
+                                    <label for="postal-input" class="font-weight-bold align-middle d-inline" id="form-label">Postal Code: 
+                                        <br>
+                                        <i class="fas fa-question-circle align-middle" title="Please enter your postal code e.g. SE1 9SG"></i>
+                                    </label>
+                                    <input type="text" class="form-control shipping-input form-input" id="postal-input" placeholder="SE1 9SG">
+                                    
+                                </div> 
+                            </div>
+                        </form>                
+                    <br>
+                    <button class="btn btn-block btn-outline-custom custom-text" id="btn-checkout">
+                        <i class="fas fa-lock"></i>
+                        <span>Checkout</span>
+                    </button>
+                </div>
+                <div class="help">
+                    <p>Need help? Email us: support@goldenshoe.co.uk</p>
+                </div>
+            </div>
+        </div>
+    {% endblock %}
+</body>
+</html>

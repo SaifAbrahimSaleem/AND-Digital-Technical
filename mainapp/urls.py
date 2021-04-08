@@ -1,0 +1,35 @@
+from django.urls import path
+from . import views
+
+urlpatterns = [
+    path('', views.index, name="index"),  
+    path('update-cookies/', views.update_cookies_asynch, name='update-cookies'),  
+    path('checkout/', views.checkout, name='checkout'),
+    path('checkout/searchbar/', views.search_bar, name='product-search-searchbar'),
+    path('checkout/update-cookies/', views.update_cookies_asynch, name='update-cookies'),
+    path('checkout/process-order/', views.process_order, name='process-order'),
+    path('products/', views.product_list, name='product-list'),
+    path('searchbar/', views.search_bar, name='product-searchbar'),
+    path('search/', views.search, name='product-search'),
+    path('search/searchbar/', views.search_bar, name='product-search-searchbar'),
+    path('search/update-cookies/', views.update_cookies_asynch, name='update-cookies-search'),
+    path('product/<str:code>/', views.product_detail, name='product-detail'),
+    path('product/<str:code>/detail/', views.get_product_detail, name='get-product-detail'),
+    path('product/<str:code>/searchbar/', views.search_bar, name='product-searchbar-detail'),
+    path('product/<str:code>/update-cookies/', views.update_cookies_asynch, name='update-cookies'),
+    path('success/', views.order_success, name='order-success'),
+    path('success/searchbar/',views.search_bar, name='searchbar-success'),
+    path('success/update-cookies/', views.update_cookies_asynch, name='update-cookies-success'),
+    path('faq/', views.faq, name="FAQs"),
+    path('faq/searchbar/',views.search_bar, name='searchbar-success'),
+    path('faq/update-cookies/', views.update_cookies_asynch, name='update-cookies-success'),
+    path('portal/', views.portal, name='portal'),
+    path('portal/searchbar/',views.search_bar, name='searchbar-success'),
+    path('portal/update-cookies/', views.update_cookies_asynch, name='update-cookies-success'),
+    path('contact/', views.contact, name='contact'),
+    path('review/', views.review, name='review'),
+    path('discount/', views.discount, name='apply-discount'),
+    path('login/', views.login_view, name='login'),
+    path('signup/', views.signup, name='signup'),
+    path('logout/', views.logout_view, name='logout')
+]

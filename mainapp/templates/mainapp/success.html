@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+{% extends 'mainapp/base.html'%}
+{% load static %}
+<html lang="en">
+<head>
+    {% block Header %}
+        <link rel="stylesheet" href="{% static 'css/success.css' %}">
+    {% endblock %}
+</head>
+<body>
+    {% block Body %}
+    <div class="center-wrapper">
+        <div class="content">
+            <div class="heading text-center">
+                <i class="fas fa-check-circle display-3"></i>
+                <h2>{{message}}</h2>
+            </div>
+            <div class="order-content">
+                <div class="text-center">
+                    <p class="h3 d-inline">Thank you for your order! </p>
+                    <p class="h3 d-inline">We'll ship it out to you as soon as we can!</p>
+                    <p class="h6">An email has been sent to {{email}} containing a copy of this order.</p>
+                </div>
+                <div class="table-wrapper">
+                    <table class="table">
+                        <thead>
+                            <tr class="table-head">
+                                <th scope="col" colspan="2" class="text-center font-weight-bold h4">Order:<p class="mx-1 d-inline">{{transaction_id}}</p></th>
+                            </tr>
+                        </thead>
+                        {% for item in items %}
+                            <tr>
+                                <td width="75%">
+                                    <div class="d-inline-flex flex-row flex-wrap">
+                                        <div class="image">
+                                            <img src="{{item.shoe_image}}" class="shoe-image">
+                                        </div>
+                                        <div class="mx-2 d-inline">
+                                            <p class="text-muted h6">Code: {{item.shoe_catalogue_code}}</p>
+                                            <p class="h5 font-weight-bold d-inline">{{item.shoe_name}}</p>
+                                            <p class="mx-1 d-inline h6 text-muted">{{item.shoe_collection}}</p>
+                                            <br>
+                                            <br>
+                                            <p class="text-muted h6 d-inline">Size: <p class="d-inline font-weight-bold">{{item.size}}</p></p>
+                                        </div>        
+                                    </div>              
+                                </td>
+                                <td width="25%">
+                                    <p class="font-weight-bold text-center">£{{item.shoe_price}}</p>
+                                    <p class="text-center">({{item.quantity}})</p>
+                                </td>
+                            </tr>
+                            
+                            
+                        {% endfor %}
+                        <tr class="table-foot">
+                            <td>
+                                <p class="text-right h5">Total Items:</p>
+                                <p class="text-right h5">Total:</p>
+                            </td>
+                            <td>
+                                 <p class="text-center font-weight-bold h5">{{total_items}}</p>
+                                 <p class="text-center font-weight-bold h5">{{total_price}}</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="shipping" scope="col" width="100%" colspan="2">
+                                <div class="shipping-heading">
+                                    <h6 class="font-weight-bold text-center">Shipping Information:</h6>
+                                </div>
+                                <br>
+                                <p class="text-muted font-weight-bold d-inline label text-center">Address: <p class="text-black d-inline val font-italic"> {{shipping.address}}</p></p>
+                                <p  class="text-muted font-weight-bold d-inline label text-center">City: <p class="text-black d-inline val font-italic">{{shipping.city}}</p></p>
+                                <p  class="text-muted font-weight-bold d-inline label text-center">Postal Code: <p class="text-black d-inline val font-italic">{{shipping.postcode}}</p></p>
+                                <p class="text-muted d-inline label font-weight-bold text-center">Delivery Method: <p class="text-black d-inline val font-italic">Free Delivery (Standard - 2 working days)</p></p>
+                                <br>
+                            </td>
+                        </tr>                        
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>   
+    {% endblock %}
+    {% block Scripts %}
+    {% endblock %}
+</body>
+</html>

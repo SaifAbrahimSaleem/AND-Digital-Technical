@@ -1,0 +1,39 @@
+.card-header [data-toggle="collapse"]:after {
+    content: "\f144"; 
+    font-family: "Font Awesome 5 Free";
+    font-weight:900;
+    float: right;
+    color:  #454444;
+    font-size: 22px;
+    line-height: 22px;
+    -webkit-transform: rotate(-90deg);
+    -moz-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    -o-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+}
+
+.card-header [data-toggle="collapse"].collapsed:after {
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    transform: rotate(90deg);
+    color: #454444;
+}
+
+.header-wrapper{
+    background-color:#f4b53c;
+    border:1px solid #454444;
+}
+
+.card-header > a{
+    width: 100%;
+    text-decoration:none;
+    color: black;
+    cursor:pointer;
+}
+
+.card-block {
+    padding:1vmax;
+}

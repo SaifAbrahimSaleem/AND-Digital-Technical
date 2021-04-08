@@ -1,0 +1,1 @@
+web: gunicorn GoldenShoe.wsgi --log-file -
