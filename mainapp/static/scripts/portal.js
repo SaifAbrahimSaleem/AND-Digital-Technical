@@ -37,7 +37,7 @@ $(document).ready(function(){
           if(parseInt(data["redirect"])==0){
               DisplayNotification(data);
           } else{
-              window.location = "/portal/";
+              window.location = "/";
           }
         }
       });
@@ -65,7 +65,8 @@ $(document).ready(function(){
           if(parseInt(data["redirect"])==0){
               DisplayNotification(data);
           } else{
-              window.location = "/";
+              window.location = "/portal/";
+              DisplayNotification(data);
           }
         }
       });

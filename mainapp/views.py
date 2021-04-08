@@ -382,7 +382,7 @@ def signup(request):
                 customer.name = user.first_name
                 login(request, user)
                 response['response'] = 'Registered Successfully! You can now login! Check your email for a special surprise!'
-                response['redirect'] = 1
+                response['redirect'] = 0
                 response['code'] = 1
                 today = timezone.now()
                 duration = today + datetime.timedelta(days=30)
